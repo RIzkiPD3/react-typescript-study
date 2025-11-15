@@ -1,0 +1,20 @@
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+
+export default function TextCard() {
+  const context = useContext(ThemeContext);
+
+  if (!context) return null;
+
+  const { theme } = context;
+
+  return (
+    <div
+      className={`p-4 rounded-lg shadow mt-4 ${
+        theme === "light" ? "bg-white text-gray-800" : "bg-gray-800 text-gray-100"
+      }`}
+    >
+      <p className="font-semibold">Ini TextCard dengan tema {theme}</p>
+    </div>
+  );
+}
